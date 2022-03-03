@@ -18,4 +18,12 @@ export class TvShowsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  nextArrowPressed() {
+    this.userIndex == this.tvShows.length - 1 ? this.userIndex = 0 : this.userIndex++;
+  }
+
+  previousArrowPressed() {
+    this.userIndex == 0 ? this.userIndex = this.tvShows.length - 1 : this.userIndex--;
+  }
+
 }

@@ -1,6 +1,9 @@
 .container {
     height: 100%;
     width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -13,7 +16,7 @@
 
 .navigation {
     color: white;
-    margin-top: 10%;
+    margin-top: 7%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,8 +34,8 @@ mat-icon:hover {
 }
 
 .tv-container {
-    width: 375px;
-    height: 650px;
+    width: 50vh;
+    height: 70vh;
     background-color: #1e1b26;
     box-shadow: 5px 5px 115px -14px black;
     border-radius: 4px;
@@ -61,8 +64,7 @@ mat-icon:hover {
 }
 
 .tv-show-text {
-    padding: 0px 12px;
-    text-align: justify;
+    padding: 20px;
 }
 
 .mr-grid {
@@ -91,8 +93,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    margin-top: 5%;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 400;
 }
 
@@ -165,14 +166,15 @@ h5 {
 }
 
 .details-row {
-    margin-top: 24px;
-    align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
     display: flex;
+    padding: 20px;
 }
 
 .rating {
     margin-left: auto;
-    margin-right: 0;
 }
 
 .rating h3 {

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="tvShows" style="background: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{tvShows[userIndex].backdrop_path}}); background-position: center; background-size: cover; background-repeat: repeat;">
+<div class="container" *ngIf="tvShows" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{tvShows[userIndex].backdrop_path}});">
     <div class="wrap">
         <div class="tv-container">
             <div class="tv-show">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="mr-grid">
                         <div class="col1">
-                            <p class="description">{{tvShows[userIndex].overview}}</p>
+                            <p class="description">{{(tvShows[userIndex].overview.length > 250)? (tvShows[userIndex].overview | slice:0:250) + ' ..':(tvShows[userIndex].overview)}}</p>
                         </div>
                     </div>
                     <div class="mr-grid details-row">
@@ -38,9 +38,9 @@
             </div>
         </div>
         <div class="navigation">
-            <a href="#"><mat-icon>keyboard_arrow_left</mat-icon></a>
+            <a href="#" (click)="previousArrowPressed()"><mat-icon>keyboard_arrow_left</mat-icon></a>
             {{userIndex + 1}} / {{tvShows.length}}
-            <a href="#"><mat-icon>keyboard_arrow_right</mat-icon></a>
+            <a href="#" (click)="nextArrowPressed()"><mat-icon>keyboard_arrow_right</mat-icon></a>
         </div>
     </div>
     
