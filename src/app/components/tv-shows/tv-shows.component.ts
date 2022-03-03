@@ -1,5 +1,5 @@
-import { TvShows } from './../../models/tv-shows';
 import { Component, Input, OnInit } from '@angular/core';
+import { TvShow } from 'src/app/models/tv-show';
 
 @Component({
   selector: 'app-tv-shows',
@@ -8,7 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TvShowsComponent implements OnInit {
 
-  @Input() tvShows: TvShows;
+  userIndex = 0;
+  tvShowRating = 0;
+
+  @Input() tvShows: Array<TvShow>;
 
   constructor() { }
 

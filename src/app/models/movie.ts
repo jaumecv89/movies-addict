@@ -1,16 +1,9 @@
-export interface Movies {
-    page: number;
-    results?: (Movie)[] | null;
-    total_results: number;
-    total_pages: number;
-}
-
 export interface Movie {
     poster_path: string;
     adult: boolean;
     overview: string;
     release_date: string;
-    genre_ids?: (number)[] | null;
+    genre_ids?: Array<number>;
     id: number;
     original_title: string;
     original_language: string;

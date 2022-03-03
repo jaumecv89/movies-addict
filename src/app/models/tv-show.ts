@@ -1,10 +1,3 @@
-export interface TvShows {
-    page: number;
-    results?: (TvShow)[] | null;
-    total_results: number;
-    total_pages: number;
-}
-
 export interface TvShow {
     poster_path: string;
     popularity: number;
@@ -13,11 +6,10 @@ export interface TvShow {
     vote_average: number;
     overview: string;
     first_air_date: string;
-    origin_country?: (string | null)[] | null;
-    genre_ids?: (number)[] | null;
+    origin_country?: Array<string>;
+    genre_ids?: Array<number>;
     original_language: string;
     vote_count: number;
     name: string;
     original_name: string;
 }
-  

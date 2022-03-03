@@ -1,9 +1,9 @@
-import { TvShowsService } from './services/tv-shows.service';
-import { Movies } from './models/movies';
+import { ApiResponse } from './models/api-response';
+import { Movie } from './models/movie';
+import { HttpService } from './services/http.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MoviesService } from './services/movies.service';
-import { TvShows } from './models/tv-shows';
+import { TvShow } from './models/tv-show';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +13,18 @@ import { TvShows } from './models/tv-shows';
 export class AppComponent implements OnInit, OnDestroy {
 
   subs: Subscription[] = [];
-  topRatedMovies: Movies;
-  topRatedTvShows: TvShows;
+  topRatedMovies: Array<Movie>;
+  topRatedTvShows: Array<TvShow>;
 
-  constructor(private movieService: MoviesService, private tvShowService: TvShowsService) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.subs.push(this.movieService.getTopRatedMovies().subscribe(data => this.topRatedMovies = data));
-    this.subs.push(this.tvShowService.getTopRatedTvShows().subscribe(data => this.topRatedTvShows = data));
+    this.subs.push(this.httpService.getTopRatedMovies().subscribe((moviesList: ApiResponse<Movie>) => {
+      this.topRatedMovies = moviesList.results;
+    }));
+    this.subs.push(this.httpService.getTopRatedTvShows().subscribe((tvList: ApiResponse<TvShow>) => {
+      this.topRatedTvShows = tvList.results;
+    }));
   }
 
   ngOnDestroy(): void {
