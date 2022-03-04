@@ -1,0 +1,48 @@
+<div class="container" *ngIf="topRatedMovies" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{topRatedMovies[userIndex].backdrop_path}});">
+    <div class="wrap">
+        <div class="movie-container">
+            <div class="movie">
+                <div class="movie-img" style="background-image: url(https://image.tmdb.org/t/p/original{{topRatedMovies[userIndex].poster_path}});"></div>
+                <div class="movie-text">
+                    <div class="mr-grid">
+                        <div class="col1">
+                            <h1>{{topRatedMovies[userIndex].title}}</h1>
+                            <ul class="movie-gen">
+                                <li>Launch date: {{topRatedMovies[userIndex].release_date}}</li>
+                                <li>/</li>
+                                <li>Original language: {{topRatedMovies[userIndex].original_language}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mr-grid summary-row">
+                        <div class="col1">
+                            <h5>SUMMARY</h5>
+                        </div>
+                    </div>
+                    <div class="mr-grid">
+                        <div class="col1">
+                            <p class="description">{{(topRatedMovies[userIndex].overview.length > 250)? (topRatedMovies[userIndex].overview | slice:0:250) + ' ..':(topRatedMovies[userIndex].overview)}}</p>
+                        </div>
+                    </div>
+                    <div class="mr-grid details-row">
+                        <a routerLink="/details/movie/{{topRatedMovies[userIndex].id}}">
+                            <div class="col2 details-btn">
+                                <h3>MORE DETAILS</h3>
+                            </div>
+                        </a>
+                        <div class="col6 rating">
+                            <h3>{{topRatedMovies[userIndex].vote_average | number: '.2-2'}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <mat-icon (click)="previousArrowPressed()">keyboard_arrow_left</mat-icon>
+            {{userIndex + 1}} / {{topRatedMovies.length}}
+            <mat-icon (click)="nextArrowPressed()">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+    
+</div>
+

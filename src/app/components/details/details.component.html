@@ -1,0 +1,82 @@
+<div class="container" *ngIf="movieDetails" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{movieDetails.backdrop_path}});">
+    <div class="content-wrapper">
+        <div class="image" style="background-image: url(https://image.tmdb.org/t/p/original{{movieDetails.poster_path}});"></div>
+        <div class="details">
+            <div class="mr-grid">
+                <div class="col1">
+                    <h1>{{movieDetails.title}} ({{movieDetails.release_date.substring(0, 4)}})</h1>
+                    <ul class="genres">
+                        <li *ngFor="let genre of movieDetails.genres">[{{genre.name}}]</li>
+                        <li>- {{movieDetails.runtime}} minutes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mr-grid" *ngIf="movieDetails.tagline">
+                <div class="col1">
+                    <p class="tagline">"{{movieDetails.tagline}}"</p>
+                </div>
+            </div>
+            <div class="mr-grid summary-row">
+                <div class="col1">
+                    <h5>OVERVIEW</h5>
+                </div>
+            </div>
+            <div class="mr-grid">
+                <div class="col1">
+                    <p class="description">{{movieDetails.overview}}</p>
+                </div>
+            </div>
+            <div class="mr-grid summary-row">
+            </div>
+            <div class="mr-grid">
+                <div class="col1">
+                    <ul class="rating">
+                        <li class="votes">{{movieDetails.vote_average}}</li>
+                        <li>({{movieDetails.vote_count}} votes)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="tvShowDetails" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{tvShowDetails.backdrop_path}});">
+    <div class="content-wrapper">
+        <div class="image" style="background-image: url(https://image.tmdb.org/t/p/original{{tvShowDetails.poster_path}});"></div>
+        <div class="details">
+            <div class="mr-grid">
+                <div class="col1">
+                    <h1>{{tvShowDetails.name}} ({{tvShowDetails.first_air_date.substring(0, 4)}})</h1>
+                    <ul class="genres">
+                        <li *ngFor="let genre of tvShowDetails.genres">[{{genre.name}}]</li>
+                        <li>- {{tvShowDetails.number_of_seasons}} seasons</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mr-grid" *ngIf="tvShowDetails.tagline">
+                <div class="col1">
+                    <p class="tagline">"{{tvShowDetails.tagline}}"</p>
+                </div>
+            </div>
+            <div class="mr-grid summary-row">
+                <div class="col1">
+                    <h5>OVERVIEW</h5>
+                </div>
+            </div>
+            <div class="mr-grid">
+                <div class="col1">
+                    <p class="description">{{tvShowDetails.overview}}</p>
+                </div>
+            </div>
+            <div class="mr-grid summary-row">
+            </div>
+            <div class="mr-grid">
+                <div class="col1">
+                    <ul class="rating">
+                        <li class="votes">{{tvShowDetails.vote_average}}</li>
+                        <li>({{tvShowDetails.vote_count}} votes)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

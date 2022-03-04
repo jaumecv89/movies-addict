@@ -1,0 +1,48 @@
+<div class="container" *ngIf="topRatedTvShows" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{topRatedTvShows[userIndex].backdrop_path}});">
+    <div class="wrap">
+        <div class="tv-container">
+            <div class="tv-show">
+                <div class="tv-show-img" style="background-image: url(https://image.tmdb.org/t/p/original{{topRatedTvShows[userIndex].poster_path}});"></div>
+                <div class="tv-show-text">
+                    <div class="mr-grid">
+                        <div class="col1">
+                            <h1>{{topRatedTvShows[userIndex].name}}</h1>
+                            <ul class="tv-show-gen">
+                                <li>Launch date: {{topRatedTvShows[userIndex].first_air_date}}</li>
+                                <li>/</li>
+                                <li>Country: {{topRatedTvShows[userIndex].origin_country}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mr-grid summary-row">
+                        <div class="col1">
+                            <h5>SUMMARY</h5>
+                        </div>
+                    </div>
+                    <div class="mr-grid">
+                        <div class="col1">
+                            <p class="description">{{(topRatedTvShows[userIndex].overview.length > 250)? (topRatedTvShows[userIndex].overview | slice:0:250) + ' ..':(topRatedTvShows[userIndex].overview)}}</p>
+                        </div>
+                    </div>
+                    <div class="mr-grid details-row">
+                        <a routerLink="/details/tv-show/{{topRatedTvShows[userIndex].id}}">
+                            <div class="col2 details-btn">
+                                <h3>MORE DETAILS</h3>
+                            </div>
+                        </a>
+                        <div class="col6 rating">
+                            <h3>{{topRatedTvShows[userIndex].vote_average | number: '.2-2'}}</h3>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <mat-icon (click)="previousArrowPressed()">keyboard_arrow_left</mat-icon>
+            {{userIndex + 1}} / {{topRatedTvShows.length}}
+            <mat-icon (click)="nextArrowPressed()">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+    
+</div>
+
