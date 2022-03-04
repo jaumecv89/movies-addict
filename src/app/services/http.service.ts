@@ -13,13 +13,15 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
+  // Movies endpoint is not working atm. Instead I've used random similar movies.
   getTopRatedMovies(): Observable<ApiResponse<Movie>> {
-    return this.http.get<ApiResponse<Movie>>(`${env.BASE_URL}/movies/top_rated`, {
+    return this.http.get<ApiResponse<Movie>>(`${env.BASE_URL}/movie/550/similar`, {
       params: {
         api_key: env.API_KEY
       }
     });
   }
+
   getTopRatedTvShows(): Observable<ApiResponse<TvShow>> {
     return this.http.get<ApiResponse<TvShow>>(`${env.BASE_URL}/tv/top_rated`, {
       params: {

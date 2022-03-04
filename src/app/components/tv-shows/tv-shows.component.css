@@ -31,6 +31,7 @@ mat-icon {
 
 mat-icon:hover {
     transform: scale(1.2);
+    cursor: pointer;
 }
 
 .tv-container {

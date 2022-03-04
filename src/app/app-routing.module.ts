@@ -1,11 +1,12 @@
-import { AppComponent } from './app.component';
+import { TvShowsComponent } from './components/tv-shows/tv-shows.component';
+import { MoviesComponent } from './components/movies/movies.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{
-    path: '',
-    component: AppComponent
-  }
+const routes: Routes = [
+  { path: '', redirectTo: '/movies', pathMatch: 'full' },
+  { path: 'movies', component: MoviesComponent },
+  { path: 'tv-shows', component: TvShowsComponent }
 ];
 
 @NgModule({
