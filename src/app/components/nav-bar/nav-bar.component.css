@@ -24,6 +24,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: #fe4141;
+}
+
 .logo {
     width: 200px;
     height: 100%;
