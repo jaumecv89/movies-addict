@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Movie } from 'src/app/models/movie';
+import { ApiResponse } from 'src/app/models/api-response';
+import { TvShow } from 'src/app/models/tv-show';
 
 const MOVIE = 'movie';
 
@@ -18,7 +21,9 @@ export class DetailsComponent implements OnInit {
   type: string;
   subs: Subscription[] = [];
   movieDetails: MovieDetails;
+  similarMovies: Array<Movie>;
   tvShowDetails: TvShowDetails;
+  similarTvShows: Array<TvShow>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,9 +43,15 @@ export class DetailsComponent implements OnInit {
       this.subs.push(this.httpService.getMovieDetails(id).subscribe((movieDetails: MovieDetails) => {
         this.movieDetails = movieDetails;
       }));
+      this.subs.push(this.httpService.getSimilarMovies(id).subscribe((moviesList: ApiResponse<Movie>) => {
+        this.similarMovies = moviesList.results;
+      }));
     } else {
       this.subs.push(this.httpService.getTvShowDetails(id).subscribe((tvShowDetails: TvShowDetails) => {
         this.tvShowDetails = tvShowDetails;
+      }));
+      this.subs.push(this.httpService.getSimilarTvShows(id).subscribe((tvShowsList: ApiResponse<TvShow>) => {
+        this.similarTvShows = tvShowsList.results;
       }));
     }
   }
