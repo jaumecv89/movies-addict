@@ -16,7 +16,7 @@
                     <p class="tagline">"{{movieDetails.tagline}}"</p>
                 </div>
             </div>
-            <div class="mr-grid summary-row">
+            <div class="mr-grid">
                 <div class="col1">
                     <h5>OVERVIEW</h5>
                 </div>
@@ -26,14 +26,28 @@
                     <p class="description">{{movieDetails.overview}}</p>
                 </div>
             </div>
-            <div class="mr-grid summary-row">
-            </div>
             <div class="mr-grid">
                 <div class="col1">
                     <ul class="rating">
                         <li class="votes">{{movieDetails.vote_average}}</li>
                         <li>({{movieDetails.vote_count}} votes)</li>
                     </ul>
+                </div>
+            </div>
+            <div class="mr-grid">
+                <div class="col1">
+                    <h5>RELATED MOVIES</h5>
+                </div>
+            </div>
+            <div class="mr-grid" *ngIf="similarMovies">
+                <div class="col3 related" routerLink="/details/movie/{{similarMovies[0].id}}" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{similarMovies[0].poster_path}});">
+                    <h3>{{similarMovies[0].title}}</h3>
+                </div>
+                <div class="col3 related" routerLink="/details/movie/{{similarMovies[1].id}}" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{similarMovies[1].poster_path}});">
+                    <h3>{{similarMovies[1].title}}</h3>
+                </div>
+                <div class="col3 related" routerLink="/details/movie/{{similarMovies[2].id}}" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{similarMovies[2].poster_path}});">
+                    <h3>{{similarMovies[2].title}}</h3>
                 </div>
             </div>
         </div>
@@ -67,14 +81,28 @@
                     <p class="description">{{tvShowDetails.overview}}</p>
                 </div>
             </div>
-            <div class="mr-grid summary-row">
-            </div>
             <div class="mr-grid">
                 <div class="col1">
                     <ul class="rating">
                         <li class="votes">{{tvShowDetails.vote_average}}</li>
                         <li>({{tvShowDetails.vote_count}} votes)</li>
                     </ul>
+                </div>
+            </div>
+            <div class="mr-grid">
+                <div class="col1">
+                    <h5>RELATED SHOWS</h5>
+                </div>
+            </div>
+            <div class="mr-grid" *ngIf="similarTvShows">
+                <div class="col3 related" routerLink="/details/tv/{{similarTvShows[0].id}}" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{similarTvShows[0].poster_path}});">
+                    <h3>{{similarTvShows[0].name}}</h3>
+                </div>
+                <div class="col3 related" routerLink="/details/tv/{{similarTvShows[1].id}}" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{similarTvShows[1].poster_path}});">
+                    <h3>{{similarTvShows[1].name}}</h3>
+                </div>
+                <div class="col3 related" routerLink="/details/tv/{{similarTvShows[2].id}}" style="background-image: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27,38, 0.95)), url(https://image.tmdb.org/t/p/original{{similarTvShows[2].poster_path}});">
+                    <h3>{{similarTvShows[2].name}}</h3>
                 </div>
             </div>
         </div>

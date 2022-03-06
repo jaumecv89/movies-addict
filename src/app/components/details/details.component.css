@@ -62,6 +62,25 @@
     font-weight: 600;
 }
 
+.related {
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 2px;
+    border-color: #fe4141;
+}
+
+.related h3 {
+    color: white;
+}
+
+.related:hover {
+    filter: brightness(150%);
+}
+
 .rating li {
     padding-top: 10px;
     font-family: 'Open Sans', sans-serif;
@@ -70,6 +89,7 @@
     float: left;  
     margin-right: 6px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .votes {

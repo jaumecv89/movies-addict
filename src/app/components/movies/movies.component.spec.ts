@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MoviesComponent } from './movies.component';
@@ -8,9 +9,12 @@ describe('MoviesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoviesComponent ]
-    })
-    .compileComponents();
+      declarations: [MoviesComponent],
+      imports: [
+        HttpClientModule
+      ],
+      providers: []
+    }).compileComponents();
   });
 
   beforeEach(() => {

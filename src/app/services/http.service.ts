@@ -24,8 +24,24 @@ export class HttpService {
     });
   }
 
+  getSimilarMovies(id: string): Observable<ApiResponse<Movie>> {
+    return this.http.get<ApiResponse<Movie>>(`${env.BASE_URL}/movie/${id}/similar`, {
+      params: {
+        api_key: env.API_KEY
+      }
+    });
+  }
+
   getTopRatedTvShows(): Observable<ApiResponse<TvShow>> {
     return this.http.get<ApiResponse<TvShow>>(`${env.BASE_URL}/tv/top_rated`, {
+      params: {
+        api_key: env.API_KEY
+      }
+    });
+  }
+
+  getSimilarTvShows(id: string): Observable<ApiResponse<TvShow>> {
+    return this.http.get<ApiResponse<TvShow>>(`${env.BASE_URL}/tv/${id}/similar`, {
       params: {
         api_key: env.API_KEY
       }
