@@ -172,5 +172,5 @@ Project Link: [https://github.com/jaumecv89/movies-addict](https://github.com/ja
 [contributors-url]: https://github.com/jaumecv89/movies-addict/graphs/contributors
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jcvila
-[product-screenshot]: images/main_screenshot.png
-[datails-product-screenshot]: images/details_screenshot.png
+[product-screenshot]: main_screenshot.png
+[datails-product-screenshot]: details_screenshot.png
